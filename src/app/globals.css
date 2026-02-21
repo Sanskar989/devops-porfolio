@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #e4e4e7;
+
+  --card: #0a0a0f;
+  --card-foreground: #e4e4e7;
+
+  --popover: #050508;
+  --popover-foreground: #e4e4e7;
+
+  --primary: #00ffd5;
+  /* Electric Cyan - Gen Z Neon */
+  --primary-rgb: 0, 255, 213;
+  --primary-foreground: #000000;
+
+  --secondary: #111118;
+  --secondary-foreground: #e4e4e7;
+
+  --muted: #18181f;
+  --muted-foreground: #71717a;
+
+  --accent: #1a1a24;
+  --accent-foreground: #e4e4e7;
+
+  --destructive: #ff3333;
+  --destructive-foreground: #fafafa;
+
+  --border: #1a1a2e;
+  --input: #1a1a2e;
+  --ring: #00ffd5;
+
+  --neon-green: #39ff14;
+  --neon-blue: #00d4ff;
+  --neon-purple: #bf00ff;
+
+  --radius: 0.75rem;
+}
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* =========== CUSTOM SCROLLBAR =========== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050508;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a2e;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 213, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 213, 0.4);
+  box-shadow: 0 0 8px rgba(0, 255, 213, 0.3);
+}
+
+/* =========== ANIMATIONS =========== */
+
+/* Typing cursor blink */
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: var(--primary); }
+}
+
+/* Glitch text effect */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  2% { transform: translate(2px, -1px); }
+  4% { transform: translate(-2px, 1px); }
+  6% { transform: translate(1px, 2px); }
+  8% { transform: translate(-1px, -2px); }
+  10% { transform: translate(0); }
+  100% { transform: translate(0); }
+}
+
+/* Pulsing neon glow */
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 213, 0.2), 0 0 20px rgba(0, 255, 213, 0.1); }
+  50% { box-shadow: 0 0 10px rgba(0, 255, 213, 0.4), 0 0 40px rgba(0, 255, 213, 0.2), 0 0 80px rgba(0, 255, 213, 0.1); }
+}
+
+/* Gradient shift */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Scanline effect */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Counter increment animation */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Subtle pulse for status indicators */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* =========== UTILITY CLASSES =========== */
+
+.glass {
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 255, 213, 0.08);
+}
+
+.glass-strong {
+  background: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 255, 213, 0.12);
+}
+
+.neon-border {
+  border: 1px solid rgba(0, 255, 213, 0.15);
+  transition: all 0.3s ease;
+}
+
+.neon-border:hover {
+  border-color: rgba(0, 255, 213, 0.4);
+  box-shadow: 0 0 15px rgba(0, 255, 213, 0.15), inset 0 0 15px rgba(0, 255, 213, 0.05);
+}
+
+.neon-glow {
+  animation: neon-pulse 3s ease-in-out infinite;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(0, 255, 213, 0.5), 0 0 40px rgba(0, 255, 213, 0.2);
+}
+
+.glitch-text {
+  animation: glitch 4s ease-in-out infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00ffd5, #00d4ff, #bf00ff);
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.scanline-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 255, 213, 0.03);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+.status-dot {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+/* Skill pill tag */
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: rgba(0, 255, 213, 0.06);
+  color: rgba(0, 255, 213, 0.8);
+  border: 1px solid rgba(0, 255, 213, 0.1);
+  transition: all 0.2s ease;
+}
+
+.skill-pill:hover {
+  background: rgba(0, 255, 213, 0.12);
+  border-color: rgba(0, 255, 213, 0.3);
+  box-shadow: 0 0 10px rgba(0, 255, 213, 0.1);
+}
+
+/* Terminal card style */
+.terminal-card {
+  background: #050508;
+  border: 1px solid #1a1a2e;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: #0a0a12;
+  border-bottom: 1px solid #1a1a2e;
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
