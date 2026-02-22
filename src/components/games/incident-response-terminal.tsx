@@ -141,7 +141,7 @@ export function IncidentResponseTerminal() {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.05 }}
                                 className={cn(
-                                    "whitespace-pre-wrap leading-relaxed",
+                                    "whitespace-pre-wrap break-words leading-relaxed",
                                     entry.type === "input" ? "text-cyan-300" :
                                         entry.type === "error" ? "text-red-400" :
                                             entry.type === "success" ? "text-green-400" :
@@ -163,7 +163,7 @@ export function IncidentResponseTerminal() {
                                 value={input}
                                 onChange={e => setInput(e.target.value)}
                                 placeholder="Type your command..."
-                                className="flex-1 bg-transparent text-zinc-200 text-xs font-mono outline-none placeholder:text-zinc-700"
+                                className="flex-1 min-w-0 bg-transparent text-zinc-200 text-xs font-mono outline-none placeholder:text-zinc-700"
                                 autoFocus
                             />
                         </form>

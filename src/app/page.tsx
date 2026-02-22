@@ -365,7 +365,7 @@ export default function Home() {
                 className="ml-10 relative"
               >
                 {/* Timeline dot */}
-                <div className={`absolute -left-[46px] top-6 h-4 w-4 rounded-full border-2 ${job.current ? 'border-primary bg-primary/30 neon-glow' : 'border-zinc-700 bg-zinc-900'}`} />
+                <div className={`absolute max-sm:-left-[30px] sm:-left-[46px] top-6 h-4 w-4 rounded-full border-2 ${job.current ? 'border-primary bg-primary/30 neon-glow' : 'border-zinc-700 bg-zinc-900'}`} />
 
                 <Card className="border-zinc-800/50 bg-zinc-950/60 backdrop-blur-sm hover:border-primary/20 transition-all duration-300 neon-border">
                   <CardHeader>
